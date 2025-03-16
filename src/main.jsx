@@ -1,7 +1,8 @@
-import { createRoot } from "react-dom/client";
-import "./App.css";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "@store/store";
 
 import { MainLayout } from "./components/layout/MainLayout";
 import Dashboard from "./components/pages/Dashboard";
@@ -13,48 +14,42 @@ import History from "./components/pages/History";
 import Informes from "./components/pages/Informes";
 import Login from "./components/pages/Login";
 
-const router = createBrowserRouter([
-    { path: "/login", element: <Login /> },
-    {
-        path: "/",
-        element: <MainLayout />,
-        children: [
-            {
-                path: "/",
-                element: <Dashboard />,
-            },
-            {
-                path: "/configuracion",
-                element: <Config />,
-            },
-            {
-                path: "/deudores/nuevo",
-                element: <NuevoDeudor />,
-            },
-            {
-                path: "/deudores",
-                element: <Deudores />,
-            },
-            {
-                path: "/gestion-deuda",
-                element: <Gestion />,
-            },
-            {
-                path: "/historial-gestiones",
-                element: <History />,
-            },
-            {
-                path: "/informes",
-                element: <Informes />,
-            },
-        ],
-    },
-]);
+import { AuthMiddleware } from "./components/auth/AuthMiddleware";
 
-createRoot(document.getElementById("root")).render(
-    // <MenuProvider>
-    <RouterProvider router={router}>
-        <MainLayout />
-    </RouterProvider>
-    // </MenuProvider>
+import "./App.css";
+import "./index.css";
+
+const ProtectedRoutes = () => {
+    return (
+        <AuthMiddleware>
+            <MainLayout>
+                <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/configuracion" element={<Config />} />
+                    <Route path="/deudores/nuevo" element={<NuevoDeudor />} />
+                    <Route path="/deudores" element={<Deudores />} />
+                    <Route path="/gestion-deuda" element={<Gestion />} />
+                    <Route
+                        path="/historial-gestiones"
+                        element={<History />}
+                    />
+                    <Route
+                        path="/informes"
+                        element={<Informes />}
+                    />
+                </Routes>
+            </MainLayout>
+        </AuthMiddleware>
+    );
+};
+const root = document.getElementById("root");
+ReactDOM.createRoot(root).render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/*" element={<ProtectedRoutes />} />
+            </Routes>
+        </BrowserRouter>
+    </Provider>
 );
