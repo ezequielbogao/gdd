@@ -7,10 +7,10 @@ const Td = (props) => {
         selected: PropTypes.bool,
     };
     return props.children ? (
-        <td className="p-3">{props.children}</td>
+        <td className="p-2">{props.children}</td>
     ) : (
-        <td className={`p-3 ${props.selected && 'bg-slate-300'}`}>
-            <span className="font-medium text-sm text-slate-500 dark:text-slate-200">
+        <td className={`p-2 border-1 border-slate-200 `}>
+            <span className="font-medium text-sm text-slate-600 dark:text-slate-200">
                 {props.content}
             </span>
         </td>

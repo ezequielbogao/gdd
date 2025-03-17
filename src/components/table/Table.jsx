@@ -7,9 +7,16 @@ const Table = (props) => {
         prevPage: PropTypes.any,
         nextPage: PropTypes.any,
         totalPage: PropTypes.any,
+        css: PropTypes.string,
     };
     return (
-        <div className="overflow-auto bg-white dark:bg-slate-800 rounded-xl mt-5 border-2 border-slate-100 dark:border-slate-700">
+        <div
+            className={`overflow-auto  ${
+                props.css
+                    ? props.css
+                    : "bg-white dark:bg-slate-800 rounded-xl mt-5 border-2 border-slate-100 dark:border-slate-700"
+            }`}>
+            {" "}
             <table className="w-full min-w-max table-auto text-left">
                 {props.children}
             </table>

@@ -56,7 +56,7 @@ const Header = () => {
                             Gestión de Deuda
                         </span>
                         <span className="text-md md:text-lg text-slate-700 dark:text-slate-300 font-medium">
-                            NOMBRE DE APP
+                            GDD
                         </span>
                     </div>
                 </div>

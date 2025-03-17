@@ -11,7 +11,7 @@ const Menu = () => {
     const location = useLocation();
     const path = location.pathname;
     return (
-        <div className="w-2/12 justify-between md:px-5 border-r-2 border-slate-100 dark:border-slate-600 bg-white dark:bg-slate-700 pb-32">
+        <div className="w-2/12 justify-between md:px-5 border-r-1 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 pb-32">
             <div className="flex flex-col mt-5">
                 <MenuButton
                     path={path}

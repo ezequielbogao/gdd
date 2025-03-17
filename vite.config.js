@@ -13,6 +13,7 @@ export default defineConfig({
       '@slices': path.resolve(__dirname, 'src/redux/slices'),
       '@store': path.resolve(__dirname, 'src/redux/store'),
       '@pages': path.resolve(__dirname, 'src/components/pages'),
+      '@icons': path.resolve(__dirname, 'src/components/icons'),
       '@cpt': path.resolve(__dirname, 'src/components'),
       '@ctx': path.resolve(__dirname, 'src/Context'),
     },

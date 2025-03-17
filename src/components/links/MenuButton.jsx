@@ -24,7 +24,7 @@ const MenuButton = (props) => {
                     props.path === props.to
                         ? "bg-slate-100 dark:bg-slate-600"
                         : ""
-                } md:justify-between md:items-center gap-3 transition-colors duration-300 ease-in-out hover:bg-slate-50 dark:hover:bg-slate-500 sm:rounded-none md:rounded-xl`}>
+                } md:justify-between md:items-center gap-3 transition-colors duration-300 ease-in-out hover:text-slate-700 hover:bg-slate-50 dark:hover:bg-slate-500 sm:rounded-none md:rounded-sm`}>
                 <div className="flex gap-2 align-middle items-center">
                     {props.icon}
                     <div className="content flex-col text-left hidden md:block">

@@ -4,6 +4,9 @@
     margin: 0 auto;
     /* padding: 2rem; */
     text-align: center;
+    /* margin: 0; */
+    /* padding: 0; */
+    /* overflow-x: hidden; */
 }
 
 .logo {
@@ -40,4 +43,36 @@
 
 .read-the-docs {
     color: #888;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+    background-color: #f0f0f0; /* color de fondo */
+    border: 2px solid #ddd; /* borde */
+    border-radius: 4px; /* bordes redondeados */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox:checked {
+    background-color: #4caf50; /* cuando está marcado */
+    border-color: #4caf50; /* color del borde cuando está marcado */
+}
+
+.checkbox:checked + label::before {
+    content: "✔";
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    font-size: 14px;
+    color: white;
+}
+
+.font-geist {
+    font-family: "Geist Mono", monospace !important;
+    font-optical-sizing: auto !important;
+}
+.font-raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
 }
